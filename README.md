@@ -1,6 +1,6 @@
 <p align="center">
     <a href="#">
-        <img width="150" src="_assets/media/logo.png" alt="logo" />
+        <img width="150" src="https://raw.githubusercontent.com/veffo/Normalize.scss/main/_assets/media/logo.png" alt="logo" />
     </a>
 </p>
 
@@ -163,7 +163,7 @@ customising the values to match the design's requirements.
 
 <p>
     <a href="#">
-        <img src="_assets/media/demo.webp" alt="demo" />
+        <img src="https://raw.githubusercontent.com/veffo/Normalize.scss/main/_assets/media/demo.webp" alt="demo" />
     </a>
 </p>
 
