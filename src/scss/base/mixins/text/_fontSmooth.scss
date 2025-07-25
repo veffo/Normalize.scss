@@ -1,0 +1,20 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Font smooth
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Font smooth >> ----*****----*/
+
+@mixin fontSmooth($valueWebKit, $valueFirefox, $font: null) {
+    -webkit-font-smoothing: $valueWebKit;
+    -moz-osx-font-smoothing: $valueFirefox;
+
+    @if($font != null) {
+        font-smooth: $font;
+    }
+}
+
+/*----*****---- << End font smooth >> ----*****----*/

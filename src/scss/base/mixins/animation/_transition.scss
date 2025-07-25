@@ -1,0 +1,19 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Transition
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Transition >> ----*****----*/
+
+@mixin transition($value...) {
+    -webkit-transition: $value;
+    -moz-transition: $value;
+    -ms-transition: $value;
+    -o-transition: $value;
+    transition: $value;
+}
+
+/*----*****---- << End transition >> ----*****----*/
