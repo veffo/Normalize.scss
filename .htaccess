@@ -1,4 +1,0 @@
-AddDefaultCharset utf-8
-RewriteEngine On
-
-RewriteRule ^$ /build/ [L]
