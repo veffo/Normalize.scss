@@ -1,0 +1,256 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Use
+    Classes
+        Common
+        Demo
+            Content
+            Embeds
+            Forms
+            Lists
+            Tables
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Use >> ----*****----*/
+
+@use "../base/mixins" as *;
+@use "../global/variables.custom" as cv;
+
+/*----*****---- << End use >> ----*****----*/
+
+/*----*****---- << Common >> ----*****----*/
+
+body {
+    padding: 3% 12%;
+}
+
+p {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: cv.$color-a-classesCommon;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
+    color: cv.$color-a-hover-focus-active-classesCommon;
+}
+
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: cv.$color-code-classesCommon;
+    background-color: cv.$bg-color-code-classesCommon;
+    border-radius: 4px;
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: cv.$color-kbd-classesCommon;
+    background-color: cv.$bg-color-kbd-classesCommon;
+    border-radius: 3px;
+    @include boxShadow(inset 0 -1px 0 rgba(0, 0, 0, 0.25));
+}
+
+pre {
+    margin: 0 0 10px 0;
+    padding: 10px;
+    font-size: 13px;
+    color: cv.$color-pre-classesCommon;
+    background-color: cv.$bg-color-pre-classesCommon;
+    border: 1px solid cv.$border-color-pre-classesCommon;
+    border-radius: 4px;
+}
+
+pre:hover {
+    border: 1px solid cv.$border-color-pre-hover-classesCommon;
+}
+
+audio, canvas, progress, video {
+    height: revert;
+}
+
+progress:hover {
+    border-color: revert;
+}
+
+blockquote {
+    margin: 0 0 20px 0;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-left: 5px solid cv.$border-left-color-blockquote-classesCommon;
+}
+
+blockquote:hover {
+    border-left: 5px solid cv.$border-left-color-blockquote-hover-classesCommon;
+}
+
+blockquote .small,
+blockquote footer,
+blockquote small {
+    font-size: 80%;
+    color: cv.$color-blockquote-small-footer-classesCommon;
+}
+
+dt {
+    font-weight: bold;
+}
+
+/*----*****---- << End common >> ----*****----*/
+
+/*----*****---- << Demo >> ----*****----*/
+
+.project-title {
+    margin: 20px 0;
+    padding: 20px;
+    font-size: 28px;
+    color: cv.$color-project-title-classesCommon;
+    background: cv.$bg-color-project-title-classesCommon;
+}
+
+.section-title {
+    margin: 20px 0;
+    padding: 12px 20px;
+    font-weight: bold;
+    color: cv.$color-section-title-classesCommon;
+    background: cv.$bg-color-section-title-classesCommon;
+    border-left: 5px solid cv.$border-left-color-section-title-classesCommon;
+}
+
+/*----*****---- << End demo >> ----*****----*/
+
+/*----*****---- << Content >> ----*****----*/
+
+.content-svg__wrapper {
+    display: inline-block;
+    overflow: hidden;
+    outline: 1px solid cv.$color-outline-content-svg-wrapper-classesCommon;
+}
+
+.content-svg {
+    width: 100px;
+    height: 100px;
+}
+
+.content-svg circle {
+    cx: 100;
+    cy: 100;
+    r: 100;
+    fill: cv.$color-fill-content-svg-circle-classesCommon;
+}
+
+.content-img__wrapper {
+    overflow: hidden;
+    outline: 1px solid cv.$color-outline-content-img-wrapper-classesCommon;
+}
+
+.content-img {
+    width: 200px;
+}
+
+/*----*****---- << End content >> ----*****----*/
+
+/*----*****---- << Embeds >> ----*****----*/
+
+.embeds-video,
+.embeds-embed,
+.embeds-object,
+.embeds-picture,
+.embeds-picture__img,
+.embeds-canvas {
+    width: 256px;
+}
+
+.embeds-canvas {
+    height: 144px;
+}
+
+/*----*****---- << End embeds >> ----*****----*/
+
+/*----*****---- << Forms >> ----*****----*/
+
+#example-label-disabled {
+    font-weight: bold;
+    cursor: default;
+}
+
+#example-optgroup,
+#example-select1,
+#option-radio1,
+#option-radio2,
+#option-radio3,
+#checkbox1,
+#checkbox2 {
+    @include appearance(auto);
+}
+
+input[disabled] {
+    color: cv.$color-forms-input-classesCommon;
+    background-color: cv.$bg-color-forms-input-classesCommon;
+    border-color: cv.$color-border-forms-input-classesCommon;
+}
+
+.option-radio3-label,
+.button-disabled {
+    color: cv.$color-forms-button-label-classesCommon;
+}
+
+/*----*****---- << End forms >> ----*****----*/
+
+/*----*****---- << Lists >> ----*****----*/
+
+ul,
+ol {
+    padding-left: 40px;
+    list-style-type: disc;
+}
+
+ol li {
+    list-style-type: decimal;
+}
+
+li {
+    list-style-type: disc;
+}
+
+.lists-summary {
+    display: list-item;
+}
+
+.lists-list > li {
+    list-style-type: circle;
+}
+
+/*----*****---- << End lists >> ----*****----*/
+
+/*----*****---- << Tables >> ----*****----*/
+
+.tables-table-example1,
+.tables-table-example3 caption {
+    margin-top: 10px;
+}
+
+.tables-table-example1 th,
+.tables-table-example2 th,
+.tables-table-example3 th {
+    font-weight: bold;
+}
+
+.tables-table-example1 th,
+.tables-table-example1 td,
+.tables-table-example2 th,
+.tables-table-example2 td,
+.tables-table-example3 th,
+.tables-table-example3 td  {
+    padding-right: 10px;
+}
+
+/*----*****---- << End tables >> ----*****----*/

@@ -1,0 +1,27 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Animation
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Animation >> ----*****----*/
+
+@mixin animation($name, $delay: 0, $timingFunction: "ease", $duration: 0, $iterationCount: "initial", $direction: "initial", $fillMode: "initial", $playState: "initial") {
+    @if($name != "none") {
+        -webkit-animation: $name $delay + "s" $timingFunction $duration + "s" $iterationCount $direction $fillMode $playState;
+        -moz-animation: $name $delay + "s" $timingFunction $duration + "s" $iterationCount $direction $fillMode $playState;
+        -ms-animation: $name $delay + "s" $timingFunction $duration + "s" $iterationCount $direction $fillMode $playState;
+        -o-animation: $name $delay + "s" $timingFunction $duration + "s" $iterationCount $direction $fillMode $playState;
+        animation: $name $delay + "s" $timingFunction $duration + "s" $iterationCount $direction $fillMode $playState;
+    } @else if($name == "none") {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        -o-animation: none;
+        animation: none;
+    }
+}
+
+/*----*****---- << End animation >> ----*****----*/

@@ -1,0 +1,838 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Use
+    Normalize
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Use >> ----*****----*/
+
+@use "../base/mixins" as *;
+@use "../global/variables.custom" as cv;
+
+/*----*****---- << End use >> ----*****----*/
+
+/*----*****---- << Normalize >> ----*****----*/
+
+@include selection();
+
+*,
+*::before,
+*::after {
+    @include boxSizing(border-box);
+    @include tapHighlightColor(transparent);
+    outline: none;
+    @include disableAnimation();
+}
+
+:invalid,
+:-moz-submit-invalid,
+:-moz-ui-invalid {
+    outline: none;
+    @include boxShadow(none);
+}
+
+*:hover,
+*:focus,
+*:active,
+*:visited {
+    outline: none;
+    border-color: inherit;
+    @include boxShadow(none);
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    @include tabSize(4);
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    @include fontSmooth(antialiased, grayscale);
+    text-align: left;
+    text-rendering: optimizeSpeed;
+    @include textSizeAdjust(100%);
+    overflow-wrap: break-word;
+    color: cv.$color-body-normalize;
+    background: cv.$bg-color-body-normalize;
+    cursor: default;
+    @include tapHighlightColor(transparent);
+    @include touchAction(manipulation);
+    -ms-overflow-style: scrollbar;
+    scrollbar-gutter: stable;
+}
+
+article,
+aside,
+blockquote,
+details,
+dialog,
+embed,
+div,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+main,
+menu,
+nav,
+p,
+pre,
+object,
+section,
+summary,
+iframe,
+legend {
+    display: block;
+}
+
+a,
+output,
+label {
+    display: inline;
+}
+
+audio,
+canvas,
+progress,
+video,
+img,
+picture,
+svg {
+	display: inline-block;
+}
+
+[hidden],
+head,
+link,
+meta,
+script,
+title,
+template,
+style {
+    display: none;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+[aria-hidden="true"] {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+[aria-hidden="false"] {
+    display: initial;
+}
+
+article,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    clear: both;
+}
+
+caption {
+    caption-side: bottom;
+}
+
+address {
+    all: unset;
+}
+
+address {
+    font-style: normal;
+    line-height: inherit;
+}
+
+div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, form, label, legend,
+dl, dt, dd, ol, ul, li,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+    font-size: 100%;
+    border: 0;
+    border-style: none;
+}
+
+audio,
+canvas,
+progress,
+video {
+    vertical-align: baseline;
+    max-width: 100%;
+    height: auto;
+    @include userSelect(none);
+}
+
+audio {
+    &:not([controls]) {
+        display: none;
+        height: 0;
+    }
+}
+
+video {
+    background: cv.$bg-color-video-normalize;
+}
+
+dialog {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 1em;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    color: cv.$color-dialog-normalize;
+    background-color: cv.$bg-color-dialog-normalize;
+    border: 1px solid cv.$border-color-dialog-normalize;
+
+    &:not([open]) {
+        display: none;
+    }
+}
+
+a {
+    vertical-align: baseline;
+    @include boxSizing(border-box);
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    @include userSelect(none);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:link,
+    &:visited {
+        text-decoration: none;
+        outline: none;
+    }
+
+    &:not([class]) {
+        text-decoration-skip-ink: auto;
+    }
+
+    &[x-apple-data-detectors="true"] {
+        text-decoration: inherit;
+        color: inherit;
+        border-bottom: none;
+    }
+}
+
+abbr[title] {
+    text-decoration: none;
+    border-bottom: 1px dotted cv.$color-border-bottom-abbr-normalize;
+    cursor: help;
+}
+
+ins {
+    text-decoration: none;
+    border-bottom: 1px dotted cv.$color-border-bottom-ins-normalize;
+}
+
+/*
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+*/
+
+b,
+strong {
+    font-weight: inherit;
+}
+
+b,
+strong,
+optgroup {
+    font-weight: bold;
+}
+
+cite,
+dfn,
+em,
+i {
+    font-style: italic;
+}
+
+mark {
+    color: cv.$color-mark-normalize;
+    background: cv.$bg-color-mark-normalize;
+}
+
+small,
+sub,
+sup {
+    position: relative;
+    font-size: 80%;
+    line-height: 0;
+}
+
+small {
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+    vertical-align: sub;
+}
+
+sup {
+    top: -0.5em;
+    vertical-align: super;
+}
+
+img,
+svg {
+    @include zIndex(1);
+    vertical-align: middle;
+    margin: 0;
+	padding: 0;
+    @include boxSizing(border-box);
+    max-width: 100%;
+    height: auto;
+    font: inherit;
+    font-size: 100%;
+    outline: 0;
+    border: 0;
+    border-style: none;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg {
+    overflow: visible;
+    fill: currentColor;
+
+    &:not([fill]),
+    &:not([fill="none"]),
+    &:not([stroke="none"]) {
+        fill: currentColor;
+    }
+
+    &:not(:root) {
+        overflow: hidden;
+    }
+
+    &* {
+        transition-property: fill, stroke;
+    }
+}
+
+[aria-busy="true"] {
+    cursor: progress;
+}
+
+[aria-controls] {
+    cursor: pointer;
+}
+
+hr {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    page-break-after: auto;
+    @include boxSizing(content-box);
+    width: 100%;
+    height: 0;
+    line-height: 0;
+    overflow: visible;
+    color: inherit;
+    background: cv.$bg-color-hr-normalize;
+    border: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        height: 0;
+    }
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-size: 100%;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, "courier new", monospace, sans-serif;
+    overflow: auto;
+}
+
+input,
+select,
+textarea {
+    display: inline-block;
+}
+
+optgroup {
+    display: block;
+    border: 0;
+    border-style: none;
+}
+
+input,
+optgroup,
+select,
+textarea {
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    @include boxSizing(border-box);
+    font: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: normal;
+    letter-spacing: inherit;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+    word-wrap: normal;
+    @include appearance(none);
+    color: inherit;
+    background: transparent;
+    outline: none;
+    @include boxShadow(none);
+    @include touchAction(manipulation);
+    @include userSelect(none);
+}
+
+input,
+textarea {
+    @include resize(none);
+}
+
+input:required {
+    @include boxShadow(none);
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+/*
+Clearfix: contain floats
+
+For modern browsers
+
+1. For IE 6/7 only
+   Include this rule to trigger hasLayout and contain floats.
+
+2. The space content is one way to avoid an Opera bug when the
+   `contenteditable` attribute is included anywhere else in the document.
+   Otherwise it causes space to appear at the top and bottom of elements
+   that receive the `clearfix` class.
+
+3. The use of `table` rather than `block` is only necessary if using
+   `:before` to contain the top-margins of child elements.
+*/
+
+.clearfix {
+    zoom: 1; /* 1 */
+
+    &::before,
+    &::after {
+        content: " "; /* 2 */
+        display: table; /* 3 */
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+a,
+area,
+button,
+label,
+summary,
+[tabindex] {
+    @include touchAction(manipulation);
+}
+
+label {
+    max-width: 100%;
+}
+
+button,
+input[type="button"],
+input[type="color"],
+input[type="reset"],
+input[type="submit"],
+input[role="button"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    @include boxSizing(border-box);
+    font: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    line-height: normal;
+    letter-spacing: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    overflow: visible;
+    @include appearance(none);
+    color: inherit;
+    background: none transparent;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    @include boxShadow(none);
+    cursor: pointer;
+    @include userSelect(none);
+}
+
+button:hover,
+button:active,
+button:focus {
+    text-decoration: none;
+}
+
+a[href],
+label[for],
+select {
+    cursor: pointer;
+}
+
+input,
+select,
+textarea {
+    border: 1px solid cv.$border-color-input-select-textarea-normalize;
+}
+
+input:hover,
+input:active,
+input:focus,
+select:hover,
+select:active,
+select:focus,
+textarea:hover,
+textarea:active,
+textarea:focus {
+    border: 1px solid cv.$border-color-input-select-textarea-normalize;
+}
+
+input[type="range"] {
+    display: block;
+    width: 100%;
+    @include appearance(auto);
+}
+
+input[type="button"],
+input[type="color"],
+input[type="reset"],
+input[type="submit"],
+input[role="button"]  {
+    @include appearance(button);
+    cursor: pointer;
+}
+
+input[type="button"]:hover,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="color"]:hover,
+input[type="color"]:active,
+input[type="color"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[role="button"]:hover,
+input[role="button"]:active,
+input[role="button"]:focus {
+    border: 0;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    padding: 0;
+    @include boxSizing(border-box);
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+input[type="file"],
+input[type="color"] {
+    border: 0;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+    @include appearance(listbox);
+}
+
+input[type="search"],
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    @include boxSizing(content-box);
+    @include appearance(none);
+    outline-offset: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    @include boxShadow(none);
+}
+
+figure,
+picture,
+img {
+    pointer-events: none;
+    cursor: default;
+}
+
+[disabled],
+[disabled="true"],
+[aria-disabled="true"],
+label[for][disabled],
+input[type="button"][disabled],
+input[type="color"][disabled],
+input[type="reset"][disabled],
+input[type="submit"][disabled],
+input[role="button"][disabled] {
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+::-moz-focus-inner,
+a::-moz-focus-inner,
+button::-moz-focus-inner,
+input::-moz-focus-inner
+:-moz-focusring,
+a:-moz-focusring,
+button:-moz-focusring,
+input::-moz-focusring {
+    padding: 0;
+    outline: none;
+    border: 0;
+    border-style: none;
+}
+
+select[multiple],
+select[size] {
+    height: auto;
+}
+
+::-webkit-file-upload-button {
+    font: inherit;
+    @include appearance(button);
+}
+
+table,
+thead,
+tbody,
+caption,
+tr,
+th,
+td
+dl,
+dd,
+dt {
+    margin: 0;
+    padding: 0;
+    @include boxSizing(border-box);
+    font-weight: normal;
+    text-align: left;
+}
+
+th:empty,
+td:empty {
+    opacity: 0;
+}
+
+main,
+fieldset {
+    font-size: 100%;
+}
+
+audio,
+progress,
+canvas,
+iframe,
+img,
+svg,
+video {
+    zoom: 1;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.83em;
+}
+
+h6 {
+    font-size: 0.75em;
+}
+
+fieldset {
+    display: inline-block;
+    margin: 0;
+    padding: 0.35em 0.625em 0.75em 0.625em;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid cv.$color-border-fieldset-normalize;
+}
+
+fieldset:hover,
+fieldset:active,
+fieldset:focus {
+    border: 1px solid cv.$color-border-fieldset-normalize;
+}
+
+table {
+    text-indent: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-color: inherit;
+}
+
+menu,
+nav,
+ol,
+ul,
+li {
+    list-style: none;
+    list-style-image: none;
+    list-style-position: outside;
+}
+
+.smoothed {
+    @include fontSmooth(antialiased, grayscale);
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+	content: "";
+	content: none;
+}
+
+legend {
+    @include boxSizing(border-box);
+    width: 100%;
+    max-width: 100%;
+    line-height: inherit;
+    white-space: normal;
+    color: inherit;
+}
+
+/*----*****---- << End normalize >> ----*****----*/

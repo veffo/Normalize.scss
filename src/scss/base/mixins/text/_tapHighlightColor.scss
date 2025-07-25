@@ -1,0 +1,15 @@
+/*------------------------------------------------------------------
+
+[Table of contents]
+
+    Tap highlight color
+
+-------------------------------------------------------------------*/
+
+/*----*****---- << Tap highlight color >> ----*****----*/
+
+@mixin tapHighlightColor($value) {
+    -webkit-tap-highlight-color: $value;
+}
+
+/*----*****---- << End tap highlight color >> ----*****----*/
